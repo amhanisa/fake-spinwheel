@@ -2,12 +2,20 @@
   font-family: "Montserrat", sans-serif;
 }
 
+body {
+  background-color: blue;
+}
+
 .picker {
   height: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.picker p {
+  color: white;
 }
 
 .input {
@@ -28,6 +36,14 @@ p {
 
 .winnertext {
   font-size: 3rem;
+  text-align: center;
+}
+
+.winner-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 #start,
