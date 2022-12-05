@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Emas 2gr</title>
+        <title>JBL GO 3</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -153,7 +153,7 @@
             // if (winners.length < 10 || names.length <= 1) {
             //     alert('belum ada pemenang');
             // } else {
-            pickedName.innerHTML = `3 Pemenang Emas 2 Gram`;
+            pickedName.innerHTML = `4 Pemenang JBL GO 3`;
             total.textContent = `${names.length}`;
             // }
         });
@@ -170,7 +170,7 @@
                 winner1.textContent = limit(names[i++ % names.length], 20);
                 winner2.textContent = limit(names[i++ % names.length], 20);
                 winner3.textContent = limit(names[i++ % names.length], 20);
-                // winner4.textContent = limit(names[i++ % names.length], 20);
+                winner4.textContent = limit(names[i++ % names.length], 20);
                 // winner5.textContent = limit(names[i++ % names.length], 20);
                 // winner6.textContent = limit(names[i++ % names.length], 20);
                 // winner7.textContent = limit(names[i++ % names.length], 20);
@@ -186,7 +186,7 @@
             winners[0] = shuffleArr[0];
             winners[1] = shuffleArr[1];
             winners[2] = shuffleArr[2];
-            // winners[3] = shuffleArr[3];
+            winners[3] = shuffleArr[3];
             // winners[4] = shuffleArr[4];
             // winners[5] = shuffleArr[5];
             // winners[6] = shuffleArr[6];
@@ -200,6 +200,7 @@
             winner1.textContent = limit(winners[0], 20);
             winner2.textContent = limit(winners[1], 20);
             winner3.textContent = limit(winners[2], 20);
+            winner4.textContent = limit(winners[3], 20);
             // winner2.textContent = '';
             // winner3.textContent = '';
             // winner4.textContent = '';
