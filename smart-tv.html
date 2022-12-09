@@ -167,7 +167,7 @@
             var random = document.querySelector("#random");
             // pickedName.innerHTML = "";
             intervalHandle = setInterval(function () {
-                winner1.textContent = limit(names[i++ % names.length], 20);
+                winner1.textContent = limit(names[i++ % names.length], 40);
                 // winner2.textContent = limit(names[i++ % names.length], 20);
                 // winner3.textContent = limit(names[i++ % names.length], 20);
                 // winner4.textContent = limit(names[i++ % names.length], 20);
@@ -197,7 +197,7 @@
             stop.style.display = "none";
             clearInterval(intervalHandle);
             // pickedName.textContent = winner;
-            winner1.textContent = limit(winners[0], 20);
+            winner1.textContent = limit(winners[0], 40);
             // winner2.textContent = '';
             // winner3.textContent = '';
             // winner4.textContent = '';
