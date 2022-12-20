@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JBL GO 3</title>
+        <title>iPhone</title>
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -128,7 +128,7 @@
 
         save.addEventListener("click", function () {
             var area = document.getElementById("names");
-            names = area.value.replace(/\r\n/g, "\n").split("\n");
+            names = area.value.trim().replace(/\r\n/g, "\n").split("\n");
 
             // winners[0] = document.querySelector('#winner1').value;
             // winners[1] = document.querySelector('#winner2').value;
@@ -153,7 +153,7 @@
             // if (winners.length < 10 || names.length <= 1) {
             //     alert('belum ada pemenang');
             // } else {
-            pickedName.innerHTML = `4 Pemenang JBL GO 3`;
+            pickedName.innerHTML = `Pemenang iPhone 14`;
             total.textContent = `${names.length}`;
             // }
         });
@@ -167,10 +167,10 @@
             var random = document.querySelector("#random");
             // pickedName.innerHTML = "";
             intervalHandle = setInterval(function () {
-                winner1.textContent = limit(names[i++ % names.length], 40);
-                winner2.textContent = limit(names[i++ % names.length], 40);
-                winner3.textContent = limit(names[i++ % names.length], 40);
-                winner4.textContent = limit(names[i++ % names.length], 40);
+                winner1.textContent = limit(names[i++ % names.length], 20);
+                // winner2.textContent = limit(names[i++ % names.length], 20);
+                // winner3.textContent = limit(names[i++ % names.length], 20);
+                // winner4.textContent = limit(names[i++ % names.length], 20);
                 // winner5.textContent = limit(names[i++ % names.length], 20);
                 // winner6.textContent = limit(names[i++ % names.length], 20);
                 // winner7.textContent = limit(names[i++ % names.length], 20);
@@ -184,9 +184,9 @@
             var shuffleArr = shuffle(names);
 
             winners[0] = shuffleArr[0];
-            winners[1] = shuffleArr[1];
-            winners[2] = shuffleArr[2];
-            winners[3] = shuffleArr[3];
+            // winners[1] = shuffleArr[1];
+            // winners[2] = shuffleArr[2];
+            // winners[3] = shuffleArr[3];
             // winners[4] = shuffleArr[4];
             // winners[5] = shuffleArr[5];
             // winners[6] = shuffleArr[6];
@@ -197,10 +197,7 @@
             stop.style.display = "none";
             clearInterval(intervalHandle);
             // pickedName.textContent = winner;
-            winner1.textContent = limit(winners[0], 40);
-            winner2.textContent = limit(winners[1], 40);
-            winner3.textContent = limit(winners[2], 40);
-            winner4.textContent = limit(winners[3], 40);
+            winner1.textContent = limit(winners[0], 20);
             // winner2.textContent = '';
             // winner3.textContent = '';
             // winner4.textContent = '';

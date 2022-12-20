@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Voucher IKEA</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    </head>
+
+    <body>
+        <button id="setup">setup</button>
+        <!-- <button id="next">next</button> -->
+        <span id="total"></span>
+        <div class="input">
+            <textarea name="names" id="names" cols="30" rows="10"></textarea>
+            <div>
+                <button id="save">save</button>
+            </div>
+        </div>
+        <div class="picker">
+            <p id="picked"></p>
+            <p class="winnertext winner1text"></p>
+            <p class="winnertext winner2text"></p>
+            <p class="winnertext winner3text"></p>
+            <p class="winnertext winner4text"></p>
+            <p class="winnertext winner5text"></p>
+            <p class="winnertext winner6text"></p>
+            <p class="winnertext winner7text"></p>
+            <p class="winnertext winner8text"></p>
+            <p class="winnertext winner9text"></p>
+            <p class="winnertext winner10text"></p>
+            <button id="start">start</button>
+            <button id="stop">stop</button>
+        </div>
+
+        <!-- <div class="source"></div>
+    <div class="source"></div>
+    <div class="source"></div>
+    <div class="source"></div>
+    <div class="source"></div> -->
+    </body>
+    <script>
+        var i = 0;
+        var save = document.querySelector("#save");
+        var names = [];
+        var winners = [];
+        let intervalHandle = null;
+        let intervalConfetti = null;
+        const setup = document.querySelector("#setup");
+        // const next = document.querySelector("#next");
+        const start = document.querySelector("#start");
+        const stop = document.querySelector("#stop");
+        const total = document.querySelector("#total");
+        const pickedName = document.querySelector("#picked");
+        const winner1 = document.querySelector(".winner1text");
+        const winner2 = document.querySelector(".winner2text");
+        const winner3 = document.querySelector(".winner3text");
+        const winner4 = document.querySelector(".winner4text");
+        const winner5 = document.querySelector(".winner5text");
+        const winner6 = document.querySelector(".winner6text");
+        const winner7 = document.querySelector(".winner7text");
+        const winner8 = document.querySelector(".winner8text");
+        const winner9 = document.querySelector(".winner9text");
+        const winner10 = document.querySelector(".winner10text");
+
+        var source = document.querySelectorAll(".source");
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+
+        // function getRandomNumber(min, max) {
+        //     return Math.random() * (max - min) + min;
+        // }
+
+        // function changePosition() {
+        //     source.forEach(source => {
+        //         randomTop = getRandomNumber(0, winHeight);
+        //         randomLeft = getRandomNumber(0, winWidth);
+
+        //         // update top and left position
+        //         source.style.top = randomTop + "px";
+        //         source.style.left = randomLeft + "px";
+        //     });
+        // }
+
+        // changePosition();
+
+        setup.addEventListener("click", function () {
+            const input = document.querySelector(".input");
+            input.classList.toggle("hide");
+            clearInterval(intervalConfetti);
+            // total.textContent = '';
+        });
+
+        function shuffle(array) {
+            var currentIndex = array.length,
+                randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex],
+                    array[currentIndex],
+                ];
+            }
+
+            return array;
+        }
+
+        function limit(string = "", limit = 0) {
+            if (string.length > limit) {
+                return string.substring(0, limit) + "...";
+            } else {
+                return string;
+            }
+        }
+
+        save.addEventListener("click", function () {
+            var area = document.getElementById("names");
+            names = area.value.trim().replace(/\r\n/g, "\n").split("\n");
+
+            // winners[0] = document.querySelector('#winner1').value;
+            // winners[1] = document.querySelector('#winner2').value;
+            // winners[2] = document.querySelector('#winner3').value;
+            // winners[3] = document.querySelector('#winner4').value;
+            // winners[4] = document.querySelector('#winner5').value;
+            // winners[5] = document.querySelector('#winner6').value;
+            // winners[6] = document.querySelector('#winner7').value;
+            // winners[7] = document.querySelector('#winner8').value;
+            // winners[8] = document.querySelector('#winner9').value;
+            // winners[9] = document.querySelector('#winner10').value;
+            winner1.textContent = "";
+            winner2.textContent = "";
+            winner3.textContent = "";
+            winner4.textContent = "";
+            winner5.textContent = "";
+            winner6.textContent = "";
+            winner7.textContent = "";
+            winner8.textContent = "";
+            winner9.textContent = "";
+            winner10.textContent = "";
+            // if (winners.length < 10 || names.length <= 1) {
+            //     alert('belum ada pemenang');
+            // } else {
+            pickedName.innerHTML = `Pemenang Voucher IKEA`;
+            total.textContent = `${names.length}`;
+            // }
+        });
+
+        start.addEventListener("click", function () {
+            var shuffleArr = shuffle(names);
+
+            clearInterval(intervalConfetti);
+            start.style.display = "none";
+            stop.style.display = "block";
+            var random = document.querySelector("#random");
+            // pickedName.innerHTML = "";
+            intervalHandle = setInterval(function () {
+                winner1.textContent = limit(names[i++ % names.length], 20);
+                // winner2.textContent = limit(names[i++ % names.length], 20);
+                // winner3.textContent = limit(names[i++ % names.length], 20);
+                // winner4.textContent = limit(names[i++ % names.length], 20);
+                // winner5.textContent = limit(names[i++ % names.length], 20);
+                // winner6.textContent = limit(names[i++ % names.length], 20);
+                // winner7.textContent = limit(names[i++ % names.length], 20);
+                // winner8.textContent = limit(names[i++ % names.length], 20);
+                // winner9.textContent = limit(names[i++ % names.length], 20);
+                // winner10.textContent = limit(names[i++ % names.length], 20);
+            }, 50);
+        });
+
+        stop.addEventListener("click", function () {
+            var shuffleArr = shuffle(names);
+
+            winners[0] = shuffleArr[0];
+            // winners[1] = shuffleArr[1];
+            // winners[2] = shuffleArr[2];
+            // winners[3] = shuffleArr[3];
+            // winners[4] = shuffleArr[4];
+            // winners[5] = shuffleArr[5];
+            // winners[6] = shuffleArr[6];
+            // winners[7] = shuffleArr[7];
+            // winners[8] = shuffleArr[8];
+            // winners[9] = shuffleArr[9];
+            start.style.display = "block";
+            stop.style.display = "none";
+            clearInterval(intervalHandle);
+            // pickedName.textContent = winner;
+            winner1.textContent = limit(winners[0], 20);
+            // winner2.textContent = '';
+            // winner3.textContent = '';
+            // winner4.textContent = '';
+            // winner5.textContent = '';
+            // winner6.textContent = '';
+            // winner7.textContent = '';
+            // winner8.textContent = '';
+            // winner9.textContent = '';
+            // winner10.textContent = '';
+
+            // DELETE DATA FROM NAMES
+            names = names.filter((name) => {
+                return winners.indexOf(name) < 0;
+            });
+
+            var textarea = document.getElementById("names");
+            textarea.value = names.join("\n");
+
+            total.textContent = `${names.length}`;
+
+            // source.forEach(source => {
+            //     party.confetti(source, {
+            //         count: party.variation.range(80, 100),
+            //     });
+            // });
+            // changePosition();
+
+            // intervalConfetti = setInterval(function () {
+            //     source.forEach(source => {
+            //         party.confetti(source, {
+            //             count: party.variation.range(80, 100),
+            //         });
+            //     });
+            //     changePosition();
+            // }, 2000);
+
+            var duration = 3600 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = {
+                startVelocity: 25,
+                spread: 360,
+                ticks: 60,
+                zIndex: 0,
+            };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            intervalConfetti = setInterval(function () {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 20 * (timeLeft / duration);
+                // since particles fall down, start a bit higher than random
+                confetti(
+                    Object.assign({}, defaults, {
+                        particleCount,
+                        origin: {
+                            x: randomInRange(0.1, 0.3),
+                            y: Math.random() - 0.2,
+                        },
+                    })
+                );
+                confetti(
+                    Object.assign({}, defaults, {
+                        particleCount,
+                        origin: {
+                            x: randomInRange(0.7, 0.9),
+                            y: Math.random() - 0.2,
+                        },
+                    })
+                );
+            }, 250);
+        });
+    </script>
+</html>

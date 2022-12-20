@@ -3,9 +3,13 @@
 }
 
 body {
-    background-image: url("bg.jpg");
+    background-image: url("bg.png");
     background-position: center;
     background-attachment: fixed;
+}
+
+#total {
+    color: white;
 }
 
 .picker {
@@ -17,7 +21,7 @@ body {
 }
 
 .picker p {
-    color: black;
+    color: white;
 }
 
 .input {
