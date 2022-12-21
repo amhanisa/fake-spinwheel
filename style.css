@@ -1,5 +1,10 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("font.woff") format("woff"), url("font.ttf") format("truetype");
+}
+
 * {
-    font-family: "Montserrat", sans-serif;
+    font-family: "CustomFont", sans-serif;
 }
 
 body {
@@ -34,14 +39,18 @@ input {
 }
 
 p {
-    font-size: 4rem;
+    font-size: 7rem;
     font-weight: bold;
     margin: 0;
     padding: 0;
 }
 
+#picked {
+    text-align: center;
+}
+
 .winnertext {
-    font-size: 7rem;
+    font-size: 9rem;
     text-align: center;
 }
 
@@ -62,11 +71,12 @@ p {
     font-weight: bold;
     border-radius: 2em;
     border: none;
-    background-color: #61b42f;
+    background-color: #dcb972;
 }
 
 #stop {
     background-color: #dc2626;
+    border: none;
 }
 
 #stop {
