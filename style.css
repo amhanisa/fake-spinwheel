@@ -3,9 +3,9 @@
 }
 
 body {
-    background-image: url("bg.jpg");
+    background-image: url("bg.png");
     background-size: cover;
-    background-color: gray;
+    background-color: #626adc;
 }
 
 #total {
