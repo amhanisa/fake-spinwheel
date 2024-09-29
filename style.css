@@ -15,6 +15,8 @@ body {
 h1 {
     color: white;
     font-size: 4rem;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .grand {
@@ -23,7 +25,7 @@ h1 {
 .picker {
     height: 100vh;
     /* margin-top: 5rem; */
-    padding-top: 5rem;
+    /* padding-top: 5rem; */
     display: flex;
     /* justify-content: center; */
     align-items: center;
