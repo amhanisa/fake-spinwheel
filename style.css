@@ -4,8 +4,10 @@
 
 body {
     background-image: url("bg.jpg");
-    background-size: cover;
-    background-color: #00a3cc;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #e0985e;
 }
 
 #total {
@@ -13,7 +15,7 @@ body {
 }
 
 h1 {
-    color: white;
+    color: #803d3b;
     font-size: 4rem;
     padding-top: 0;
     margin-top: 0;
@@ -24,8 +26,8 @@ h1 {
 }
 .picker {
     height: 100vh;
-    /* margin-top: 5rem; */
-    /* padding-top: 5rem; */
+    margin-top: 4rem;
+    padding-top: 4rem;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -33,7 +35,7 @@ h1 {
 }
 
 .picker p {
-    color: white;
+    color: #803d3b;
 }
 
 .input {
@@ -46,7 +48,12 @@ input {
 }
 
 .list-doorprize {
-    color: white;
+    color: #803d3b;
+}
+
+.list-link {
+    font-size: 2rem;
+    color: #803d3b;
 }
 
 p {
@@ -61,7 +68,7 @@ p {
 }
 
 .winnertext {
-    font-size: 6rem;
+    font-size: 4rem;
     text-align: center;
 }
 
